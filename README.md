@@ -1,3 +1,3 @@
 # introjs-demo
 A dialer demo project using AngularJS 1.3, Bootstrap 3 and IntroJS
-To see the app in action, go to http://dbondarc.github.io/introjs-demo/index.html#/mainnav.
+To see the app in action, go to http://dbondarc.github.io/introjs-demo/index.html#/mainnav
