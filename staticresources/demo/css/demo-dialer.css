@@ -1,0 +1,981 @@
+/*-------------------
+	Dialer Custom
+--------------------*/
+body {
+  overflow: hidden;
+}
+.intro-dialer-container {
+  overflow: hidden;
+  height: 100%;
+}
+.intro-dialer-container .wiz-alert-box {
+  position: absolute;
+  width: 90%;
+  top: -3px;
+  z-index: 99999;
+}
+.intro-dialer-container .well {
+  padding: 10px;
+  margin-bottom: 0px;
+}
+.intro-dialer-container .dialer-controls-container {
+  position: relative;
+  min-height: 340px;
+}
+.intro-dialer-container .dialer-controls-container .alert.call-status-error {
+  margin: 10px 0px 0px 0px;
+  position: absolute;
+  width: 100%;
+}
+.intro-dialer-container .intro-dialer-controls.ng-hide {
+  visibility: hidden !important;
+  display: block !important;
+}
+.intro-dialer-container .intro-action-container {
+  position: relative;
+}
+.intro-dialer-container .intro-action-container .action-alert-container {
+  position: absolute;
+  top: 0;
+  z-index: 10;
+}
+.intro-dialer-container .intro-action-container .form-control,
+.intro-dialer-container .intro-action-container button.intro-submit {
+  margin-top: 0px;
+}
+.intro-dialer-container .intro-action-container .form-group {
+  margin-bottom: 10px;
+}
+.intro-dialer-container .intro-action-container .control-label,
+.intro-dialer-container .intro-action-container .intro-intro-trigger {
+  display: none;
+}
+.intro-dialer-container .intro-action-container button.intro-submit {
+  width: 100%;
+}
+.intro-dialer-container hr {
+  border: 1px dashed #cccccc;
+  margin-bottom: 10px;
+}
+.intro-dialer-container .modal-dialog .modal-content {
+  border-radius: 4px;
+}
+.intro-dialer-container .modal-dialog .modal-header,
+.intro-dialer-container .modal-dialog .modal-body,
+.intro-dialer-container .modal-dialog .modal-footer {
+  padding: 10px;
+}
+.intro-dialer-container .modal-dialog .modal-footer {
+  padding-top: 0px;
+}
+.intro-dialer-container .intro-caller-id.btn {
+  margin-top: 10px;
+  padding: 7px 5px 5px 6px;
+  height: 32px;
+  color: grey;
+  font-size: 12px;
+  width: 100%;
+}
+.intro-dialer-container .intro-caller-id.btn i.icons {
+  display: table-cell;
+  float: left;
+  line-height: 20px;
+  margin-right: 3px;
+}
+.intro-dialer-container .intro-caller-id.btn b {
+  margin-right: 1px;
+}
+.intro-dialer-container .intro-caller-id.btn .caret {
+  margin-bottom: 2px;
+}
+.intro-dialer-container .intro-caller-id.btn ul.dropdown-menu {
+  min-width: 177px;
+}
+.intro-dialer-container .call-id-dropdown {
+  background-color: #fff;
+  margin-top: 17px;
+  padding: 0px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  width: 90%;
+}
+.intro-dialer-container .call-id-dropdown li {
+  list-style: none;
+  border-bottom: 1px solid #eee;
+  height: 57px;
+  padding: 8px 15px 5px 5px;
+}
+.intro-dialer-container .call-id-dropdown li:last-child {
+  border-bottom: none;
+}
+.intro-dialer-container .call-id-dropdown li:hover {
+  background-color: #EDEDED;
+}
+.intro-dialer-container .call-id-dropdown li a {
+  display: block;
+  color: #9E9E9E;
+  text-align: right;
+  text-decoration: none;
+  padding: 0px;
+  height: 100%;
+  width: 100%;
+}
+.intro-dialer-container .call-id-dropdown li a .check-mark {
+  float: left;
+  font-size: 21px;
+  margin-top: 9px;
+  margin-left: 7px;
+  color: #5CCA75!important;
+}
+.intro-dialer-container .call-id-dropdown li a:hover {
+  background-color: #EDEDED!important;
+  color: #9E9E9E!important;
+}
+.intro-dialer-container .call-id-dropdown li a i {
+  color: #C8C8C8;
+}
+.intro-dialer-container .call-id-dropdown li a .icon-label {
+  padding-top: 2px;
+  display: block;
+  color: grey;
+}
+.intro-dialer-footer {
+  border: none;
+  margin: 0;
+  padding: 0;
+  position: relative;
+}
+.intro-dialer-footer .signalr-status {
+  float: left;
+  margin-right: -14px;
+  padding-top: 4px;
+  width: 14px;
+}
+.intro-dialer-footer .dialer-settings {
+  position: absolute;
+  right: 0px;
+  border: none;
+  background: none;
+}
+.intro-dialer-footer .dialer-settings:focus {
+  outline: 0;
+}
+.intro-dialer-footer .dialer-settings:active {
+  outline: 0;
+}
+.intro-dialer-footer .logo {
+  margin: 0 auto;
+}
+.intro-dialer-display {
+  min-height: 135px;
+}
+.intro-dialer-screen {
+  border-radius: 5px;
+  border: 1px solid #cccccc;
+  background-color: #fff;
+  margin-top: 10px;
+  padding: 10px;
+}
+.intro-dialer-screen.has-buttons {
+  border-radius: 5px 5px 0px 0px;
+  border-top: 1px solid #cccccc;
+  border-right: 1px solid #cccccc;
+  border-left: 1px solid #cccccc;
+  border-bottom: none;
+}
+.intro-notification-container {
+  opacity: 0;
+  transition: all linear 0.7s;
+  z-index: 1;
+}
+.intro-notification-container .alert {
+  margin-bottom: 0px;
+}
+.intro-notification-container .alert-danger {
+  background-color: #fff;
+  font-weight: bold;
+}
+.intro-notification-container .close {
+  margin-right: 4px;
+}
+.intro-notification-container .spinner {
+  stroke: #428bca;
+  fill: #428bca;
+}
+.intro-notification-container,
+.intro-notification-container.ng-enter {
+  position: fixed;
+  z-index: 99999;
+}
+.intro-notification-container,
+.intro-notification-container.ng-enter-active {
+  position: static;
+  z-index: 99999;
+}
+.intro-notification-container,
+.intro-notification-container.ng-enter.ng-enter-active {
+  -webkit-animation: fadeInDown 0.5s;
+  animation: fadeInDown 0.5s;
+  transition: all linear 0.5s;
+  opacity: 1;
+}
+.intro-notification-container.ng-enter,
+.intro-notification-container.ng-leave.ng-leave-active {
+  -webkit-animation: fadeOutUp 0.5s;
+  animation: fadeOutUp 0.5s;
+  transition: all linear 0.5s;
+  opacity: 0;
+}
+.intro-notification-container .intro-notifcation-screen {
+  background-color: #fff;
+  border-radius: 5px;
+  border: 1px solid #cccccc;
+  margin-top: 10px;
+  padding: 10px;
+  min-height: 80px;
+  text-align: center;
+  color: grey;
+}
+.intro-notification-container .intro-notification-screen-buttons {
+  background-color: #fff;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  border-top: 1px solid #cccccc;
+  border-right: 1px solid #cccccc;
+  border-left: 1px solid #cccccc;
+  border-bottom: none;
+  margin-top: 10px;
+  padding: 10px;
+  min-height: 80px;
+  text-align: center;
+  color: grey;
+}
+.intro-notification-container .intro-notification-screen-buttons h5 {
+  font-weight: bold;
+  font-size: 11px;
+  color: grey;
+  text-align: center;
+  padding: 10px;
+  text-transform: uppercase;
+  margin: 0;
+}
+.intro-notification-container .button-container-reset {
+  border-bottom-left-radius: 0px!important;
+  border-bottom-right-radius: 0px!important;
+}
+.abs-container .modal.center .modal-dialog {
+  left: 45%;
+  min-width: 176px;
+}
+.abs-container .modal-header,
+.abs-container .modal-body,
+.abs-container .modal-footer {
+  padding: 10px;
+}
+.abs-container .modal-footer {
+  padding-top: 0px;
+}
+.user-settings-toggle {
+  transition: bottom 0.8s ease-in-out;
+}
+.user-settings-toggle.ng-enter {
+  bottom: -500px;
+}
+.user-settings-toggle.ng-enter.ng-enter-active {
+  bottom: 58px;
+}
+.user-settings-toggle.ng-leave {
+  bottom: 0px;
+}
+.user-settings-toggle.ng-leave.ng-leave-active {
+  bottom: -500px;
+}
+.settingsHeight {
+  height: 562px;
+}
+.user-settings-container {
+  position: absolute;
+  color: #686868;
+  bottom: 58px;
+  left: 4px;
+  width: 96%;
+  background-color: #fff;
+  border: 1px solid #e3e3e3;
+  border-radius: 3px;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
+  /*	-webkit-filter: drop-shadow(0 1px 5px rgba(0,0,0,0.2));
+    -moz-box-shadow: 0 1px 5px rgba(0,0,0,0.2);
+    filter: drop-shadow(0 1px 5px rgba(0,0,0,0.2));
+*/
+}
+.user-settings-container .cg-busy-default-text {
+  margin: 13px 3px 6px 49px;
+  height: 20px;
+  font-size: 12px;
+  color: #555;
+  text-align: left;
+  max-width: 400px;
+}
+.user-settings-container #alerts-container {
+  position: fixed;
+  top: 20px;
+  width: 90% !important;
+  z-index: 9999;
+  left: 10px;
+}
+.user-settings-container #alerts-container .alert {
+  margin: -13px 0px 0px 0px;
+  text-align: center;
+}
+.user-settings-container .modal-body {
+  border: none;
+}
+.user-settings-container .modal-body h5 {
+  display: inline-block;
+}
+.user-settings-container .modal-body label {
+  font-size: 85%;
+}
+.user-settings-container .modal-body intro-service-toggle-button {
+  display: inline-block;
+  float: right;
+}
+.user-settings-container .modal-body ::-webkit-input-placeholder {
+  /* WebKit browsers */
+  color: #E4E4E4;
+}
+.user-settings-container .modal-body :-moz-placeholder {
+  /* Mozilla Firefox 4 to 18 */
+  color: #E4E4E4;
+  opacity: 1;
+}
+.user-settings-container .modal-body ::-moz-placeholder {
+  /* Mozilla Firefox 19+ */
+  color: #E4E4E4;
+  opacity: 1;
+}
+.user-settings-container .modal-body :-ms-input-placeholder {
+  /* Internet Explorer 10+ */
+  color: #E4E4E4;
+}
+.user-settings-container .modal-body .middle-body .form-group {
+  margin-bottom: 10px;
+  position: relative;
+}
+.user-settings-container .modal-body .middle-body .form-group .icon-help.intro-question {
+  color: #888;
+  position: absolute;
+  margin: 4px 0px 0px 5px;
+  font-size: 90%;
+}
+.user-settings-container .modal-body .middle-body .form-group .tooltip.top {
+  padding: 5px 0;
+  width: 180px;
+  margin-top: -5px !important;
+  margin-left: 3px;
+}
+.user-settings-container .modal-body .middle-body .form-group .tooltip.top .tooltip-inner {
+  background-color: #000;
+  color: #fff;
+}
+.user-settings-container .modal-body .middle-body .form-group .tooltip.top .tooltip-arrow {
+  border-top-color: #000!important;
+  margin-left: 2px;
+}
+.user-settings-container .modal-body .middle-body hr {
+  border: 1px dashed #cccccc;
+  margin-bottom: 10px;
+}
+.user-settings-container .modal-footer {
+  padding: 0px 15px 15px 15px;
+}
+.user-settings-container:after,
+.user-settings-container:before {
+  top: 100%;
+  left: 100%;
+  border: solid transparent;
+  content: " ";
+  height: 0;
+  width: 0;
+  position: absolute;
+  pointer-events: none;
+}
+.user-settings-container:after {
+  border-color: rgba(136, 183, 213, 0);
+  border-top-color: #fff;
+  border-width: 11px;
+  margin-left: -31px;
+}
+.user-settings-container:before {
+  border-color: rgba(194, 225, 245, 0);
+  border-top-color: #e3e3e3;
+  border-width: 13px;
+  margin-left: -33px;
+}
+.intro-dialer-buttons .popover {
+  opacity: 1;
+}
+.intro-dialer-buttons .popover.ng-enter {
+  -webkit-animation: zoomIn 0.5s;
+  animation: zoomIn 0.5s;
+  opacity: 1;
+}
+.intro-dialer-buttons .popover.ng-leave {
+  -webkit-animation: zoomOut 0.5s;
+  animation: zoomOut 0.5s;
+  opacity: 0;
+}
+.intro-dialer-buttons .popover-content {
+  padding: 0;
+}
+.intro-dialer-buttons > .btn-group {
+  width: 100%;
+}
+.bs3.intro-dialer-container .modal.center .modal-dialog {
+  min-width: 150px;
+  width: 90%;
+  left: 45%;
+}
+.enter-number-transfer-form-container {
+  padding: 10px;
+}
+.intro-transfer-display,
+.intro-action-container {
+  -webkit-animation: fadeInUp 0.5s;
+  animation: fadeInUp 0.5s;
+  transition: all linear 0.5s;
+  opacity: 1;
+}
+.intro-transfer-display.ng-hide,
+.intro-action-container.ng-hide {
+  -webkit-animation: fadeOutDown 0.5s;
+  animation: fadeOutDown 0.5s;
+  transition: all linear 0.5s;
+  opacity: 0;
+}
+.spinner-mask {
+  color: #444;
+  width: 100%;
+  height: 100%;
+  background: #fff;
+  opacity: 0.8;
+  position: absolute;
+  top: 0;
+  border-radius: 5px;
+  padding: 30px;
+}
+.select-voicemail-form {
+  padding-top: 10px;
+  width: 185px;
+}
+.select-voicemail-form .voicemail-list {
+  overflow-y: scroll;
+  overflow-x: hidden;
+  height: 120px;
+}
+.select-voicemail-form .voicemail {
+  padding: 5px 10px;
+  overflow: hidden;
+  width: 100%;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.select-voicemail-form div.form-group {
+  margin-bottom: 0px;
+}
+.select-voicemail-form input.form-control.filter-voicemail-text {
+  border-radius: 0px;
+  border-left: none;
+  border-right: none;
+  padding-left: 24px;
+}
+.select-voicemail-form input.form-control.filter-voicemail-text:focus {
+  box-shadow: none;
+  border-color: #cccccc;
+}
+.select-voicemail-form .voicemail-indicator {
+  border-radius: 50%;
+  float: left;
+  height: 10px;
+  width: 10px;
+  margin: 5px 5px 5px 0px;
+  box-shadow: inset 0 -2px 10px rgba(0, 0, 0, 0.3);
+}
+.select-voicemail-form .voicemail-indicator.ContinueCall {
+  background-color: #58db8e;
+}
+.select-voicemail-form .voicemail-indicator.TerminateCall {
+  background-color: #d9534f;
+}
+.progress.voicemail-playback-progress {
+  height: 5px;
+  margin-bottom: -5px;
+  border-radius: 0px;
+  position: relative;
+  top: 28px;
+  z-index: 2000;
+}
+.dialer-intro-nav a span {
+  margin-left: 5px;
+}
+.dialer-intro-nav a img {
+  height: 20px;
+}
+.aside-header h4 {
+  margin: 0px;
+}
+.intro-dialer-container .btn:disabled {
+  background-color: #f5f5f5;
+  border-color: #cccccc;
+  color: #cccccc;
+}
+.intro-dialer-container .intro-dialer-buttons .btn-group.btn-group-justified .btn-group.size-2-5 {
+  width: 2.5%;
+}
+.intro-dialer-container .intro-dialer-buttons .btn-group.btn-group-justified .btn-group:first-child .btn:first-child {
+  border-top-left-radius: 0;
+}
+.intro-dialer-container .intro-dialer-buttons .btn-group.btn-group-justified .btn-group:last-child .btn:first-child {
+  border-top-right-radius: 0;
+}
+.intro-dialer-container .intro-dialer-buttons .btn-group.btn-group-justified .btn-group:only-child .btn:first-child {
+  border-bottom-left-radius: 3px;
+  border-bottom-right-radius: 3px;
+}
+.intro-dialer-container .intro-dialer-buttons .btn-group.btn-group-justified .btn {
+  font-size: 12px;
+}
+.intro-dialer-container .intro-dialer-buttons .btn-group.btn-group-justified .btn > i {
+  font-size: 14px;
+}
+.intro-dialer-container .intro-dialer-buttons .btn-group.btn-group-justified .btn-default {
+  background-color: #f8f8f8;
+}
+.intro-dialer-container .alert {
+  font-size: 0.9em;
+  padding: 10px;
+}
+.intro-dialer-container .modal-content h4.modal-title {
+  font-size: 13px;
+}
+.intro-dialer-container .modal-content .modal-body,
+.intro-dialer-container .modal-content .btn {
+  font-size: 12px;
+}
+.intro-dialer-container .modal-content .lead-name {
+  color: #428bca;
+}
+.intro-dialer-screen {
+  font-size: 12px;
+}
+.intro-dialer-screen.alert-danger {
+  font-weight: normal;
+}
+.intro-dialer-screen p {
+  width: 100%;
+  margin: 0 0 5px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.intro-dialer-screen .intro-dialer-call-info {
+  color: #cccccc;
+}
+.intro-dialer-screen .intro-status-title,
+.intro-dialer-screen .intro-dialer-callstatus,
+.intro-dialer-screen .intro-dialer-lead-name {
+  font-weight: bold;
+}
+.intro-dialer-screen .intro-dialer-lead-name a {
+  color: #000;
+}
+.intro-dialer-screen .intro-dialer-lead-name a:hover {
+  color: #409ad6;
+}
+.intro-dialer-screen .intro-dialer-callstatus .spinner.intro-loading {
+  vertical-align: middle;
+}
+.intro-dialer-screen .intro-dialer-callstatus .spinner.intro-loading svg {
+  stroke: #428bca;
+  fill: #428bca;
+}
+.intro-transfer-display .intro-dialer-screen p {
+  white-space: normal;
+}
+.intro-call-connected {
+  color: #5cb85c;
+}
+.intro-call-ended {
+  color: #d9534f;
+}
+.intro-call-connecting {
+  color: #428bca;
+}
+.intro-call-hold {
+  color: #ffc702;
+}
+.intro-status-warn {
+  color: #d9534f;
+}
+.dialer-error-link a {
+  font-weight: bold;
+  color: #d9534f;
+}
+.dialer-error-link a:hover {
+  color: #d9534f;
+}
+.intro-dialer-footer .dialer-settings .icon {
+  color: #888888;
+  font-size: 22px;
+}
+.slide-menu {
+  min-width: 175px;
+  min-height: 215px;
+  overflow-x: hidden;
+  position: relative;
+}
+.slide-menu ul,
+.slide-menu li {
+  padding: 0;
+  margin: 0;
+}
+.slide-menu ul {
+  list-style: none;
+}
+.slide-menu .push-nav {
+  width: 175px;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 230px;
+  background: #FFFFFF;
+  transition: ease-in-out 0.6s;
+}
+.slide-menu .push-nav.open {
+  left: 0px;
+}
+.slide-menu .menu-topbar:hover .menu-back,
+.slide-menu .menu-topbar:hover .menu-close {
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.2);
+  transition: ease-in-out 0.6s;
+}
+.slide-menu .menu-topbar .menu-title {
+  font-weight: bold;
+  font-family: arial;
+  font-size: 12px;
+  color: grey;
+  text-align: center;
+  padding: 10px;
+  border-bottom: solid 1px #cccccc;
+}
+.slide-menu .menu-topbar .menu-back,
+.slide-menu .menu-topbar .menu-close {
+  border-radius: 5px;
+  color: #fff;
+  position: absolute;
+  padding: 0px 5px;
+  margin: 9px 4px 4px 4px;
+  cursor: pointer;
+}
+.slide-menu .menu-topbar .menu-close {
+  right: 0px;
+}
+.slide-menu .menu-topbar .menu-close .icons.intro-remove-delete-two {
+  font-size: 12px;
+  padding: 2px 0px 1px 0px;
+}
+.slide-menu .menu-topbar .menu-close .icons.intro-remove-delete-two {
+  margin: 0px -1px;
+}
+.slide-menu li.menu-item {
+  font-family: arial;
+  font-size: 12px;
+  border-bottom: solid 1px #cccccc;
+  color: grey;
+}
+.slide-menu li.menu-item .menu-item-label {
+  padding: 10px;
+  cursor: pointer;
+}
+.slide-menu li.menu-item .transfer-cold {
+  color: #409ad6;
+}
+.slide-menu li.menu-item .transfer-warm {
+  color: #ffc702;
+}
+.slide-menu li.menu-item .transfer-no-hold {
+  color: #58db8e;
+}
+.slide-menu li.menu-item .icons {
+  float: right;
+  font-size: 14px;
+}
+.slide-menu li.menu-item:hover {
+  background: #efefef;
+}
+.popover.popover-transfer-default {
+  color: #cccccc;
+  background-color: #fff;
+  padding: 0;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.4);
+  border: solid 1px #cccccc;
+  border-radius: 5px;
+}
+.popover.popover-transfer-default .popover-content {
+  border-radius: 5px;
+}
+.popover.popover-transfer-default .slide-menu {
+  border-radius: 5px;
+}
+.popover.popover-transfer-default .slide-menu .menu-title {
+  border-bottom-color: #cccccc;
+  background-color: #cccccc;
+  color: #fff;
+  transition: ease-in-out 0.6s;
+}
+.popover.popover-transfer-default.bottom-left > .arrow:after,
+.popover.popover-transfer-default.bottom > .arrow:after {
+  border-bottom-color: #cccccc;
+  transition: ease-in-out 0.6s;
+}
+.popover.popover-transfer-warm {
+  color: #ffc702;
+  background-color: #fff;
+  padding: 0;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.4);
+  border: solid 1px #cccccc;
+  border-radius: 5px;
+}
+.popover.popover-transfer-warm .popover-content {
+  border-radius: 5px;
+}
+.popover.popover-transfer-warm .slide-menu {
+  border-radius: 5px;
+}
+.popover.popover-transfer-warm .slide-menu .menu-title {
+  border-bottom-color: #ffc702;
+  background-color: #ffc702;
+  color: #fff;
+  transition: ease-in-out 0.6s;
+}
+.popover.popover-transfer-warm.bottom-left > .arrow:after,
+.popover.popover-transfer-warm.bottom > .arrow:after {
+  border-bottom-color: #ffc702;
+  transition: ease-in-out 0.6s;
+}
+.popover.popover-transfer-cold {
+  color: #409ad6;
+  background-color: #fff;
+  padding: 0;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.4);
+  border: solid 1px #cccccc;
+  border-radius: 5px;
+}
+.popover.popover-transfer-cold .popover-content {
+  border-radius: 5px;
+}
+.popover.popover-transfer-cold .slide-menu {
+  border-radius: 5px;
+}
+.popover.popover-transfer-cold .slide-menu .menu-title {
+  border-bottom-color: #409ad6;
+  background-color: #409ad6;
+  color: #fff;
+  transition: ease-in-out 0.6s;
+}
+.popover.popover-transfer-cold.bottom-left > .arrow:after,
+.popover.popover-transfer-cold.bottom > .arrow:after {
+  border-bottom-color: #409ad6;
+  transition: ease-in-out 0.6s;
+}
+.popover.popover-transfer-no-hold {
+  color: #58db8e;
+  background-color: #fff;
+  padding: 0;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.4);
+  border: solid 1px #cccccc;
+  border-radius: 5px;
+}
+.popover.popover-transfer-no-hold .popover-content {
+  border-radius: 5px;
+}
+.popover.popover-transfer-no-hold .slide-menu {
+  border-radius: 5px;
+}
+.popover.popover-transfer-no-hold .slide-menu .menu-title {
+  border-bottom-color: #58db8e;
+  background-color: #58db8e;
+  color: #fff;
+  transition: ease-in-out 0.6s;
+}
+.popover.popover-transfer-no-hold.bottom-left > .arrow:after,
+.popover.popover-transfer-no-hold.bottom > .arrow:after {
+  border-bottom-color: #58db8e;
+  transition: ease-in-out 0.6s;
+}
+.popover.popover-voicemail-default {
+  color: #cccccc;
+  background-color: #fff;
+  padding: 0;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.4);
+  border: solid 1px #cccccc;
+  border-radius: 5px;
+}
+.popover.popover-voicemail-default .popover-content {
+  border-radius: 5px;
+}
+.popover.popover-voicemail-default .slide-menu {
+  border-radius: 5px;
+}
+.popover.popover-voicemail-default .slide-menu .menu-title {
+  border-bottom-color: #cccccc;
+  background-color: #cccccc;
+  color: #fff;
+  transition: ease-in-out 0.6s;
+}
+.popover.popover-voicemail-default.bottom-left > .arrow:after,
+.popover.popover-voicemail-default.bottom > .arrow:after {
+  border-bottom-color: #cccccc;
+  transition: ease-in-out 0.6s;
+}
+.popover-transfer-default {
+  color: #cccccc;
+  background-color: #fff;
+  padding: 0;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.4);
+  border: solid 1px #cccccc;
+  border-radius: 5px;
+}
+.popover-transfer-default .popover-content {
+  border-radius: 5px;
+}
+.popover-transfer-default .slide-menu {
+  border-radius: 5px;
+}
+.popover-transfer-default .slide-menu .menu-title {
+  border-bottom-color: #cccccc;
+  background-color: #cccccc;
+  color: #fff;
+  transition: ease-in-out 0.6s;
+}
+.popover-transfer-default.bottom-left > .arrow:after,
+.popover-transfer-default.bottom > .arrow:after {
+  border-bottom-color: #cccccc;
+  transition: ease-in-out 0.6s;
+}
+.popover-transfer-cold {
+  color: #409ad6;
+  background-color: #fff;
+  padding: 0;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.4);
+  border: solid 1px #cccccc;
+  border-radius: 5px;
+}
+.popover-transfer-cold .popover-content {
+  border-radius: 5px;
+}
+.popover-transfer-cold .slide-menu {
+  border-radius: 5px;
+}
+.popover-transfer-cold .slide-menu .menu-title {
+  border-bottom-color: #409ad6;
+  background-color: #409ad6;
+  color: #fff;
+  transition: ease-in-out 0.6s;
+}
+.popover-transfer-cold.bottom-left > .arrow:after,
+.popover-transfer-cold.bottom > .arrow:after {
+  border-bottom-color: #409ad6;
+  transition: ease-in-out 0.6s;
+}
+.popover-transfer-no-hold {
+  color: #58db8e;
+  background-color: #fff;
+  padding: 0;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.4);
+  border: solid 1px #cccccc;
+  border-radius: 5px;
+}
+.popover-transfer-no-hold .popover-content {
+  border-radius: 5px;
+}
+.popover-transfer-no-hold .slide-menu {
+  border-radius: 5px;
+}
+.popover-transfer-no-hold .slide-menu .menu-title {
+  border-bottom-color: #58db8e;
+  background-color: #58db8e;
+  color: #fff;
+  transition: ease-in-out 0.6s;
+}
+.popover-transfer-no-hold.bottom-left > .arrow:after,
+.popover-transfer-no-hold.bottom > .arrow:after {
+  border-bottom-color: #58db8e;
+  transition: ease-in-out 0.6s;
+}
+.tutorial .slide-menu {
+  min-width: 230px;
+}
+.tutorial .slide-menu .push-nav {
+  width: 230px;
+}
+.tutorial .user-settings-container-tut {
+  position: absolute;
+  color: #686868;
+  bottom: 58px;
+  left: 4px;
+  width: 96%;
+  background-color: #fff;
+  border: 1px solid #e3e3e3;
+  border-radius: 3px;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
+}
+.tutorial .user-settings-container-tut .modal-body {
+  border: none;
+}
+.tutorial .user-settings-container-tut .modal-body h5 {
+  display: inline-block;
+}
+.tutorial .user-settings-container-tut .modal-body label {
+  font-size: 85%;
+}
+.tutorial .user-settings-container-tut .modal-body .intro-service-toggle-button {
+  display: inline-block;
+  float: right;
+}
+.tutorial .user-settings-container-tut .modal-body .middle-body .form-group {
+  margin-bottom: 10px;
+  position: relative;
+}
+.tutorial .user-settings-container-tut .modal-body hr {
+  border: 1px dashed #cccccc;
+  margin-bottom: 10px;
+}
+
+.select-agent-transfer-form {
+  padding-top: 10px;
+}
+.select-agent-transfer-form .available-agent-list {
+  overflow-y: scroll;
+  overflow-x: hidden;
+  height: 120px;
+}
+.select-agent-transfer-form .available-agent {
+  padding: 5px 12px;
+  overflow: hidden;
+  width: 100%;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.select-agent-transfer-form div.form-group {
+  margin-bottom: 0px;
+}
+.select-agent-transfer-form input.form-control.search-available-agents-text {
+  border-radius: 0px;
+  border-left: none;
+  border-right: none;
+}
+.select-agent-transfer-form input.form-control.search-available-agents-text:focus {
+  box-shadow: none;
+  border-color: #cccccc;
+}

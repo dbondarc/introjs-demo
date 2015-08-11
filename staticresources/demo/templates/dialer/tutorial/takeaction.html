@@ -1,0 +1,151 @@
+<div class="well" style="max-width: 250px; float:left;">
+    <h4>4 - Take Action</h4>
+    <br/>
+    <div id="alerts-container" class="wiz-alert-box"></div>
+    <intro-call-next-button>
+        <button class="btn btn-primary btn-block ng-binding next-call">Next Call</button>
+    </intro-call-next-button>
+    <intro-call-id-button>
+        <button type="button" class="btn btn-default intro-caller-id ng-binding"><i class="icons intro-location"></i> <b>Caller ID </b> (999) 999-9999 <span class="caret"></span></button>
+    </intro-call-id-button>
+    <intro-dialer-notification></intro-dialer-notification>
+    <div class="dialer-controls-container">
+        <div class="alert alert-danger call-status-error ng-hide">
+            <p class="ng-binding">
+                Call Failed
+            </p>
+            <div class="ng-hide">
+                <a class="ng-binding"></a>
+            </div>
+            <div><a href="#">Update</a></div>
+        </div>
+        <div class="intro-dialer-controls">
+            <div class="intro-display-container">
+                <intro-dialer-display>
+                    <div class="intro-dialer-display">
+                        <intro-dialer-screen class="ng-scope">
+                            <div class="intro-dialer-screen has-buttons">
+                                <p class="intro-dialer-callstatus ng-binding intro-call-ended" ng-class="callStatus.titleStyle" title="Call Failed">
+                                    <i class="icons ng-scope intro-info" ng-class="callStatus.icon"></i> Call Failed
+                                </p>
+                                <p class="intro-dialer-lead-name">
+                                    <a ng-href="/00Q1a000001g4p2EAA" intro-console-click="afterOpenTab" console-link-dynamic="true" console-tab-name="Sarah Loehr" console-id="00Q1a000001g4p2EAA" console-name="Sarah Loehr" console-url="/00Q1a000001g4p2EAA" sf-object-details="00Q1a000001g4p2EAA" ,="" target="_blank" class="ng-binding ng-isolate-scope" href="/00Q1a000001g4p2EAA">Sarah Loehr</a>
+                                </p>
+                                <p class="intro-dialer-lead-company ng-binding">
+                                    MedLife, Inc.
+                                </p>
+                                <p class="intro-dialer-lead-phone ng-binding">
+                                    (555) 555-1212
+                                </p>
+                                <p class="intro-dialer-status ng-binding">
+                                    <span class="intro-status-title" ng-show="activeContact.status">Status: </span> Contacted
+                                </p>
+                            </div>
+                        </intro-dialer-screen>
+                        <intro-dialer-buttons class="ng-scope">
+                            <div class="intro-dialer-buttons">
+                                <div class="btn-group btn-group-justified" role="group">
+                                    <div class="btn-group" role="group" intro-dialer-button-transfer="">
+                                        <button type="button" transfer-menu-popover="" class="btn btn-default btn-transfer ng-scope" disabled="disabled"><i class="icons intro-forward"></i></button>
+                                    </div>
+                                    <div class="btn-group" role="group" intro-dialer-button-voicemail="">
+                                        <button type="button" class="btn btn-default btn-voicemail ng-scope" voicemail-popover="" disabled="disabled"><i class="icons intro-tape" ng-class="voicemailBtnClass"></i></button>
+                                    </div>
+                                    <div class="btn-group" role="group" intro-dialer-button-answer-hangup="">
+                                        <button type="button" class="btn btn-default btn-answer-hang-up"><i class="icons intro-last-attempt intro-call-connected" ng-class="answerBtnClass"></i></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </intro-dialer-buttons>
+                    </div>
+                </intro-dialer-display>
+            </div>
+            <div class="intro-transfer-display ng-hide" ng-hide="!callStatus.isTransferBarVisible">
+                <intro-transfer-dialer-screen>
+                    <div class="intro-dialer-screen" ng-class="{ 'has-buttons': hasTransferButtons }">
+                        <p class="intro-dialer-callstatus ng-binding" ng-class="callStatus.transferTitleStyle" title="">
+                            <i class="icons ng-scope" ng-class="callStatus.transferIcon" ng-if="callStatus.transferIcon !== 'intro-loading-4'"></i>
+                        </p>
+                        <p class="intro-dialer-lead-name ng-scope" ng-if="transferAgent.id === null">
+                            Distribution
+                        </p>
+                        <p class="intro-dialer-lead-name ng-binding ng-hide" ng-show="transferAgent.name">
+                        </p>
+                        <p class="intro-dialer-lead-phone ng-binding ng-hide" ng-show="transferAgent.phone">
+                        </p>
+                    </div>
+                </intro-transfer-dialer-screen>
+                <intro-transfer-dialer-buttons class="ng-scope">
+                    <div class="intro-dialer-buttons">
+                        <div class="btn-group btn-group-justified" role="group">
+                        </div>
+                    </div>
+                </intro-transfer-dialer-buttons>
+            </div>
+            <div class="intro-action-container">
+                <hr>
+                <div ng-form="takeActionForm" cg-busy="submitActionPromise" class="take-action-form ng-pristine ng-valid ng-isolate-scope first-page ready-to-commit ng-valid-required" object-id="00Q1a000001g4p2EAA" object-name="Sarah Loehr" object-type="Lead" disable-status-history="true" modal-container=".abs-container" alert-container=".action-alert-container" alert-placement="inline" style="position: relative;">
+                    <div class="take-action-form-content form-content">
+                        <!-- ngIf: !disableStatusHistory -->
+                        <div class="form-group take-action-help">
+                            <label for="" class="control-label">Take Action <span class="text-danger">*</span></label>
+                            <div class="ng-pristine ng-valid">
+                                <div class="ui-select-container ui-select-bootstrap dropdown ng-valid ng-pristine open" reset-search-input="true" theme="bootstrap">
+                                    <input type="text" autocomplete="off" class="form-control ui-select-search ng-pristine ng-valid ng-touched" placeholder="Select action...">
+                                    <ul class="ui-select-choices ui-select-choices-content dropdown-menu ng-scope" role="listbox">
+                                        <li class="ui-select-choices-group">
+                                            <a href="javascript:void(0)" style="background-color:#409ad6; color:#fff;" class="ui-select-choices-row-inner"><span>Attempt Contact 1</span></a>
+                                            <a href="javascript:void(0)" class="ui-select-choices-row-inner"><span>Contacted</span></a>
+                                            <a href="javascript:void(0)" class="ui-select-choices-row-inner"><span>Left Voicemail</span></a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group clearfix">
+                            <label for="" class="control-label">Comment <span class="text-danger">*</span></label>
+                            <textarea class="form-control ng-pristine ng-untouched ng-valid ng-valid-required" rows="3" placeholder="Enter Notes"></textarea>
+                            <span class="pull-left textbox-count-box hidden ng-binding ng-pristine ng-valid" max-chars="980" show-count-on="10">Characters Remaining: 980</span>
+                        </div>
+                        <div class="form-group ng-binding ng-hide" ng-show="step === 1">
+                            <label>Action: </label>
+                        </div>
+                        <div class="flex-btn-panel flex-btn-panel-right-only" ng-class="{
+	            'flex-btn-panel-both': ( flexBtns.hasLeft &amp;&amp; flexBtns.hasRight ),
+	            'flex-btn-panel-left-only': ( flexBtns.hasLeft &amp;&amp; !flexBtns.hasRight ),
+	            'flex-btn-panel-right-only': ( !flexBtns.hasLeft &amp;&amp; flexBtns.hasRight )
+	        }">
+                            <div class="flex-btn-panel-left ng-hide" ng-show="flexBtns.hasLeft">
+                                <button type="button" flex-button-panel-left="" class="btn btn-default ng-scope ng-hide" ng-show="btnCancelEnabled &amp;&amp; step === 0" ng-click="showCancel();">
+                                    Cancel
+                                </button>
+                                <button type="button" flex-button-panel-left="" class="btn btn-default ng-scope ng-hide" ng-show="step === 1" ng-click="step = 0; dialerCommitTextFix();">
+                                    Back
+                                </button>
+                            </div>
+                            <div class="flex-btn-panel-spacer"></div>
+                            <div class="flex-btn-panel-right">
+                                <button type="button" class="btn btn-primary intro-submit pull-right" disabled="disabled">Commit Action</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div ng-hide="userOf === false || (userOf !== false &amp;&amp; (canTakeAction === false || readOnlyPermmisionSet === true))" class="intro-intro-trigger"><a href="" ng-click="takeActionHelpView()" ng-intro-options="IntroOptions.takeActionHelpView" ng-intro-method="takeActionHelpView" class="ng-isolate-scope"><span class="icon-help intro-question"></span></a></div>
+                </div>
+                <div class="action-alert-container"></div>
+            </div>
+        </div>
+    </div>
+    <div class="intro-dialer-footer">
+        <div class="signalr-status">
+            <signalr-indicator class="ng-isolate-scope">
+                <div class="signalr-indicator-container ng-scope" data-placement="right-top" data-container=".intro-signalr-indicator" data-trigger="hover" data-title="Connected" bs-tooltip="">
+                    <div class="intro-signalr-indicator indicator-on" ng-class="indicatorClass"></div>
+                </div>
+            </signalr-indicator>
+        </div>
+        <intro-user-settings>
+            <button bs-enabled="validLic" data-trigger="hover" data-title="No valid Dial-IQ license." bs-tooltip="" class="dialer-settings ng-scope" ng-click="agent.agentSettings.hasDialIQLicense ? showModal() : null "> <i class="icon intro-gear-setting-2"></i></button>
+        </intro-user-settings>
+        <div class="logo logo-small"></div>
+    </div>
+</div>
