@@ -631,7 +631,6 @@ body {
 .slide-menu {
   min-width: 175px;
   min-height: 215px;
-  overflow-x: hidden;
   position: relative;
 }
 .slide-menu ul,
